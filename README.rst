@@ -5,9 +5,6 @@ I1820-RPi
 
 Introduction
 ------------------------------------------------------------------------------
-.. figure:: http://aolab.github.io/documentation/architecture/I1820-Plug.jpg
-   :alt: I1820-Plug in AoLab IoT Architecture
-   :align: center
 
 Improved 18.20 Raspberry Pi Plugin. You can use it in order to create I1820 Applications
 for your IoT environment that runs on Raspberry Pi platform.
@@ -49,4 +46,4 @@ Car
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 - Author: Roya Taheri
 
-This project is a smart car monitoring system.
+This project is a smart car monitoring system. It monitors speed and acceleration for moving car.
