@@ -13,33 +13,24 @@ import json
 class I1820Log:
     '''
     The I1820Log object contains information that is used to
-    report end device states into I1820.
+    report end device states into I1820 platform.
     :param type: type of target end device.
     :type type: str
     :param device: identification of target end device.
     :type device: str
     :param states: states of target device.
     :type states: dict
-    :param agent: identification of target end device agent [Raspberry PI].
-    :type agent: str
     '''
     def __init__(self, type: str, device: str,
-                 states: list,
-                 agent: str,
+                 states: dict,
                  timestamp: datetime.datetime = None):
         if timestamp is None:
             timestamp = datetime.datetime.utcnow()
-
-        for state in states:
-            if 'name' not in state or 'value' not in state:
-                raise ValueError(
-                    'states must be an array of names and values.')
 
         self.states = states
         self.type = type
         self.device = device
         self.timestamp = timestamp
-        self.agent = agent
 
     def to_json(self):
         result = {
@@ -47,7 +38,6 @@ class I1820Log:
                 'type': self.type,
                 'device': self.device,
                 'states': self.states,
-                'agent': self.agent
         }
         return json.dumps(result)
 
@@ -58,7 +48,6 @@ class I1820Log:
         states = raw_values['states']
         type = raw_values['type']
         device = raw_values['device']
-        agent = raw_values['agent']
         timestamp = datetime.datetime.fromtimestamp(
             raw_values['timestamp'])
-        return cls(type, device, states, agent, timestamp)
+        return cls(type, device, states, timestamp)
