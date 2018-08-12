@@ -18,16 +18,23 @@ class I1820Log:
     :type type: str
     :param device: identification of target end device.
     :type device: str
-    :param states: states of target device.
-    :type states: dict
+    :param states: states of target device in the list format.
+    :type states: list
     '''
     def __init__(self, type: str, device: str,
-                 states: dict,
+                 states: list,
                  timestamp: datetime.datetime = None):
         if timestamp is None:
             timestamp = datetime.datetime.utcnow()
 
-        self.states = states
+        self.states = dict()
+        for state in states:
+            if 'name' not in state or 'value' not in state:
+                raise ValueError(
+                    'states must be an array of names and values.')
+            else:
+                self.states[state['name']] = state['value']
+
         self.type = type
         self.device = device
         self.timestamp = timestamp
