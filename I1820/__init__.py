@@ -1,12 +1,8 @@
-import uuid
 import logging
 
-i1820_id = uuid.uuid5(uuid.NAMESPACE_URL,
-                      'I1820://%s.aolab.ceit.aut.ac.ir' % uuid.getnode())
-
 i1820_log_format = (
-    ('I1820 [{}]: [%(asctime)s] %(levelname)-8s %(name)-12s '
-     '%(message)s').format(str(i1820_id))
+    ('I1820 Citadon: [%(asctime)s] %(levelname)-8s %(name)-12s '
+     '%(message)s')
 )
 
 i1820_log_formatter = logging.Formatter(i1820_log_format)
