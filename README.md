@@ -1,4 +1,5 @@
 # I1820-RPi
+[![Codacy Badge](https://img.shields.io/codacy/grade/2f9b3cc824ba40cc8b58f1596a08d49d.svg?style=flat-square)](https://www.codacy.com/project/i1820/Core.RPi/dashboard)
 
 ## Introduction
 Improved 18.20 Raspberry Pi Plugin. You can use it in order to create I1820 Applications
