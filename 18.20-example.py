@@ -5,9 +5,10 @@ from I1820.domain.notif import I1820Notification
 
 import time
 
-tenant_id = 'parham-home'
+dev_eui = '0000000000000073'
+token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIwMDAwMDAwMDAwMDAwMDczIiwiaWF0IjoxNTM0MDY5NzI5LCJpc3MiOiJsYW5zZXJ2ZXIuc2gifQ.lv2yHtpTV96vH0Z-bbfuREzy0gpBRN2F7h-8JOvBME0'
 
-app = I1820App(tenant_id, '192.168.73.6')
+app = I1820App(dev_eui, token, '127.0.0.1')
 
 
 @app.notification('lamp', 'alarm', 'smartLamp')
@@ -16,31 +17,27 @@ def lamp_notification(data: I1820Notification):
 
 
 if __name__ == '__main__':
-    app.add_thing('lamp', '1:1')
-    app.add_thing('alarm', '1:2')
-    app.add_thing('smartLamp', '1:3')
-    app.add_thing('multisensor', '1')
     app.run()
-    t = 10
-    l = 1024
-    m = 1
+    temperature = 10
+    light = 1
+    motion = 1
     while True:
-        t = (t + 10) % 100
-        l = l / 2 if l >= 128 else l * 2
-        m = 0 if m == 1 else 1
+        temperature = (temperature + 10) % 100
+        light = light / 2 if light >= 128 else light * 2
+        motion = 0 if motion == 1 else 1
 
         states = []
         states.append({
             'name': 'temperature',
-            'value': str(t)
+            'value': str(temperature)
         })
         states.append({
             'name': 'light',
-            'value': str(l)
+            'value': str(light)
         })
         states.append({
             'name': 'motion',
-            'value': str(m)
+            'value': str(motion)
         })
         states.append({
             'name': 'humidity',
