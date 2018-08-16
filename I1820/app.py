@@ -69,13 +69,6 @@ class I1820App:
             return fn
         return _notification
 
-    def action(self, *names: [str]):
-        def _action(fn):
-            for name in names:
-                self.action_handlers[name] = fn
-            return fn
-        return _action
-
     def log(self, type, device, states):
         log = I1820Log(type, device, states)
         data = {
