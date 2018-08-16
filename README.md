@@ -2,10 +2,11 @@
 [![Codacy Badge](https://img.shields.io/codacy/grade/2f9b3cc824ba40cc8b58f1596a08d49d.svg?style=flat-square)](https://www.codacy.com/project/i1820/Core.RPi/dashboard)
 
 ## Introduction
-Improved 18.20 Raspberry Pi Plugin. You can use it in order to create I1820 Applications
-for your IoT environment that runs on Raspberry Pi platform.
+I1820 platform agent library with LAN protocol and Aolab model.
+you can use this library in order to implement application that sends and receives data by LAN protocol
+and based on Aolab model with I1820. This library in python so it will be easy to use it on Raspberry Pi.
 
-## SubProjects
+## Projects
 ### Goldoon
 - Author: Iman Tabrizian
 
