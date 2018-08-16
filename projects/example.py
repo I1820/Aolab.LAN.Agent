@@ -6,7 +6,12 @@ from I1820.domain.notif import I1820Notification
 import time
 
 dev_eui = '0000000000000073'
-token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIwMDAwMDAwMDAwMDAwMDczIiwiaWF0IjoxNTM0MDY5NzI5LCJpc3MiOiJsYW5zZXJ2ZXIuc2gifQ.lv2yHtpTV96vH0Z-bbfuREzy0gpBRN2F7h-8JOvBME0'
+
+# token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ'\
+#    '9.eyJqdGkiOiIwMDAwMDAwMDAwMDAwMDczIiwiaWF0Ij'\
+#    'oxNTM0MDY5NzI5LCJpc3MiOiJsYW5zZXJ2ZXIuc2gifQ.'\
+#    'lv2yHtpTV96vH0Z-bbfuREzy0gpBRN2F7h-8JOvBME0'
+token = 'secret'
 
 app = I1820App(dev_eui, token, '127.0.0.1')
 
