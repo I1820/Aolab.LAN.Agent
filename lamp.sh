@@ -68,7 +68,7 @@ zabdari() {
   turn 2 3 false
 }
 
-osPS3=$PS3
+oPS3=$PS3
 PS3="[I1820] Please choose your way [ENTER to list options]:"
 select t in "Let's do a bandari" "Let's do a zabdari" "Quit"; do
 	if [ ! -z "$t" ]; then
