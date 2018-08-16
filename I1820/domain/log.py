@@ -15,13 +15,13 @@ class I1820Log:
     The I1820Log object contains information that is used to
     report end device states into I1820 platform.
     :param type: type of target end device.
-    :type type: str
+    :type kind: str
     :param device: identification of target end device.
     :type device: str
     :param states: states of target device in the list format.
     :type states: list
     '''
-    def __init__(self, type: str, device: str,
+    def __init__(self, kind: str, device: str,
                  states: list,
                  timestamp: datetime.datetime = None):
         if timestamp is None:
@@ -35,14 +35,14 @@ class I1820Log:
             else:
                 self.states[state['name']] = state['value']
 
-        self.type = type
+        self.kind = kind
         self.device = device
         self.timestamp = timestamp
 
     def to_json(self):
         result = {
                 'timestamp': self.timestamp.timestamp(),
-                'type': self.type,
+                'kind': self.kind,
                 'device': self.device,
                 'states': self.states,
         }
@@ -53,8 +53,8 @@ class I1820Log:
         raw_values = json.loads(raw)
 
         states = raw_values['states']
-        type = raw_values['type']
+        kind = raw_values['kind']
         device = raw_values['device']
         timestamp = datetime.datetime.fromtimestamp(
             raw_values['timestamp'])
-        return cls(type, device, states, timestamp)
+        return cls(kind, device, states, timestamp)
