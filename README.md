@@ -1,4 +1,4 @@
-# I1820-RPi
+# Aolab.LAN.Agent
 [![Codacy Badge](https://img.shields.io/codacy/grade/2f9b3cc824ba40cc8b58f1596a08d49d.svg?style=flat-square)](https://www.codacy.com/project/i1820/Aolab.LAN.Agent/dashboard)
 
 ## Introduction
