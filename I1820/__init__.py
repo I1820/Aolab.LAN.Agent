@@ -1,7 +1,7 @@
 import logging
 
 i1820_log_format = (
-    ('I1820 Citadon: [%(asctime)s] %(levelname)-8s %(name)-12s '
+    ('I1820 Aolab.LAN.Agent: [%(asctime)s] %(levelname)-8s %(name)-12s '
      '%(message)s')
 )
 
