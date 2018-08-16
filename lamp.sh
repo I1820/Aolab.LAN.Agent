@@ -35,11 +35,11 @@ turn() {
 }
 
 bandari() {
-  for i in `seq 1 9`; do
+  for i in $(seq 1 9); do
     turn 1 $i true
     turn 2 $i true
   done
-  for i in `seq 1 9`; do
+  for i in $(seq 1 9); do
     turn 1 $i false
     turn 2 $i false
   done
