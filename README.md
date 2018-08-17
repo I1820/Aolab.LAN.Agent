@@ -1,4 +1,5 @@
 # Aolab.LAN.Agent
+[![Travis](https://img.shields.io/travis/com/I1820/Aolab.LAN.Agent.svg?style=flat-square)](https://travis-ci.com/I1820/Aolab.LAN.Agent)
 [![Codacy Badge](https://img.shields.io/codacy/grade/2f9b3cc824ba40cc8b58f1596a08d49d.svg?style=flat-square)](https://www.codacy.com/project/i1820/Aolab.LAN.Agent/dashboard)
 
 ## Introduction
