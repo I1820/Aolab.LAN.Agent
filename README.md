@@ -4,10 +4,17 @@
 
 ## Introduction
 I1820 platform agent library with LAN protocol and Aolab model.
-you can use this library in order to implement application that sends and receives data by LAN protocol
-and based on Aolab model with I1820. This library in python so it will be easy to use it on Raspberry Pi.
+You can use this library to implement applications that send and receive data by LAN protocol
+and based on Aolab model with I1820. This library is written in python so it will be easy to use it on Raspberry Pi.
+
+## Up and Running
+First of all, you must register your device in the [Lanserver](https://github.com/I1820/lanserver) after that use generated token to
+create `I1820Agent` with this library and then you are good to go.
 
 ## Projects
+These people help us to improve our work by creating projects with this library. I want
+to thanks them here by noting their works.
+
 ### Goldoon
 - Author: Iman Tabrizian
 
