@@ -52,7 +52,9 @@ class I1820Log:
     def from_json(cls, raw):
         raw_values = json.loads(raw)
 
-        states = raw_values['states']
+        states = []
+        for key, value in raw_values['states'].items():
+            states += {'name': key, 'value': value}
         kind = raw_values['kind']
         device = raw_values['device']
         timestamp = datetime.datetime.fromtimestamp(
