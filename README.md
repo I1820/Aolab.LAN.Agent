@@ -9,7 +9,7 @@ and based on Aolab model with I1820. This library is written in python so it wil
 
 ## Up and Running
 First of all, you must register your device in the [Lanserver](https://github.com/I1820/lanserver) after that use generated token to
-create `I1820Agent` with this library and then you are good to go.
+create `I1820App` with this library and then you are good to go.
 
 ## Projects
 These people help us to improve our work by creating projects with this library. I want
