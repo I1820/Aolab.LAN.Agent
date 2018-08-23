@@ -21,7 +21,7 @@ class I1820Notification:
     :type settings: dict
     '''
     def __init__(self, kind: str, device: str,
-                 settings: list):
+                 settings: dict):
         self.type = kind
         self.device = device
         self.settings = settings
