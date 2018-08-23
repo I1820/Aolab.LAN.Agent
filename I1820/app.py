@@ -91,7 +91,10 @@ class I1820App:
                                     self.dev_eui, self._on_notification)
 
     def _on_notification(self, client, userdata, message):
-        notif = I1820Notification.from_json(message.payload.decode('ascii'))
+        data = json.loads(message.payload.decode('ascii'))
+        notif = I1820Notification.from_json(base64.b64decode(
+            data['data']
+        ))
 
         try:
             self.notification_handlers[notif.type](notif)
