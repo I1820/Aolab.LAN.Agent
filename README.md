@@ -1,6 +1,5 @@
 # Aolab.LAN.Agent
-[![Travis](https://img.shields.io/travis/com/I1820/Aolab.LAN.Agent.svg?style=flat-square)](https://travis-ci.com/I1820/Aolab.LAN.Agent)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2f9b3cc824ba40cc8b58f1596a08d49d)](https://www.codacy.com/app/i1820/Aolab.LAN.Agent?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=I1820/Aolab.LAN.Agent&amp;utm_campaign=Badge_Grade)
+[![Drone (cloud)](https://img.shields.io/drone/build/I1820/Aolab.LAN.Agent.svg?style=flat-square)](https://cloud.drone.io/I1820/Aolab.LAN.Agent)
 
 ## Introduction
 I1820 platform agent library with LAN protocol and Aolab model.
