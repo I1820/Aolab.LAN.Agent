@@ -23,7 +23,7 @@ i1820_logger_app = logging.getLogger('I1820.app')
 
 class I1820App:
     def __init__(self, dev_eui: str, token: str, mqtt_ip: str,
-                 mqtt_port: int=1883, logger=None):
+                 mqtt_port: int = 1883, logger=None):
         # MQTT Up and Running
         self.client = mqtt.Client()
         self.client.connect(mqtt_ip, mqtt_port)

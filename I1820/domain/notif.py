@@ -27,12 +27,12 @@ class I1820Notification:
         self.settings = settings
 
     def to_json(self):
-            result = {
+        result = {
                 'kind': self.kind,
                 'device': self.device,
                 'settings': self.settings,
             }
-            return json.dumps(result)
+        return json.dumps(result)
 
     @classmethod
     def from_json(cls, raw):
