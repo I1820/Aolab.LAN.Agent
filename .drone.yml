@@ -1,0 +1,17 @@
+kind: pipeline
+name: default
+
+steps:
+- name: build
+  image: python
+  commands:
+    - pip install --upgrade pip setuptools wheel
+    - pip install -r dev-requirements.txt
+    - python setup.py install
+    - flake8 --statistics --verbose .
+
+services:
+- name: broker
+  image: erlio/docker-vernemq:latest
+  environment:	
+    DOCKER_VERNEMQ_ALLOW_ANONYMOUS: on
