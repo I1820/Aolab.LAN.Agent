@@ -7,6 +7,8 @@
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
 import abc
+import typing
+
 from ..domain.message import AoLabThingMessage
 
 
@@ -17,5 +19,5 @@ class AoLabSerialProtocol:
         pass
 
     @abc.abstractmethod
-    def unmarshal(self, message: str) -> AoLabThingMessage:
+    def unmarshal(self, message: str) -> typing.Optional[AoLabThingMessage]:
         pass

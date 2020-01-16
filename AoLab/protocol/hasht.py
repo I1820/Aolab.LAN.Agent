@@ -6,6 +6,8 @@
 #
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
+import typing
+
 from .base import AoLabSerialProtocol
 from ..domain.message import AoLabThingMessage
 
@@ -36,20 +38,21 @@ class HashtProtocol(AoLabSerialProtocol):
                                     device_id, command)
         if type != 'lamp':
             return '@%s,%s%s.' % (node_id, self.thing_actuators[type], command)
+        return ''
 
-    def unmarshal(self, message: str) -> AoLabThingMessage:
+    def unmarshal(self, message: str) -> typing.Optional[AoLabThingMessage]:
         if len(message) == 0 or message[0] != '@':
             return None
         parts = message.split(',')
-        node = parts[0][1:]
+        node = int(parts[0][1:])
         if parts[-1][0].isalpha():
             battery = 0
             parts[-1] = parts[-1][:-2]
         else:
-            battery = parts[-1][:-2]
+            battery = int(parts[-1][:-2])
             parts.pop()
             try:
-                battery = (int(battery) - 2900) // 13
+                battery = (battery - 2900) // 13
             except (KeyError, ValueError):
                 battery = 0
         things = []
