@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "aolab.lan.agent"
+name = "i1820"
 version = "0.1.0"
 description = "I1820 python client (based on LAN protocol and Aolab Model) from good days of the AoLab"
 authors = ["Parham Alvani <parham.alvani@gmail.com>"]
@@ -10,6 +10,7 @@ python = "^3.7"
 paho-mqtt = "^1.5.0"
 
 [tool.poetry.dev-dependencies]
+mypy = "^0.770"
 
 [build-system]
 requires = ["poetry>=0.12"]
