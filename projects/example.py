@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
-from I1820.app import I1820App
-from I1820.domain.notif import I1820Notification
+from i1820 import App, Notification
 
 import time
 
@@ -9,13 +8,13 @@ import time
 dev_eui = 'device_identification'
 
 token = 'device_token'
-# token = 'A5evk1nK7uu_867mP3eqyePcNPIqfKVg8gcf7iMJ6_4='
+# token = 'aQtfclhd-RfHEKFNYT1SNodJtu0CGHcrZcORCU-cKOE='
 
-app = I1820App(dev_eui, token, '127.0.0.1')
+app = App(dev_eui, token, '127.0.0.1')
 
 
 @app.notification('lamp', 'alarm', 'smartLamp')
-def lamp_notification(data: I1820Notification):
+def lamp_notification(data: Notification):
     return True
 
 
