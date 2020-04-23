@@ -6,8 +6,8 @@
 #
 # [] Created By : Parham Alvani (parham.alvani@gmail.com)
 # =======================================
-from .domain.log import I1820Log
-from .domain.notif import I1820Notification
+from .domain.log import Log
+from .domain.notif import Notification
 from .errors import I1820Exception
 
 import paho.mqtt.client as mqtt
@@ -17,11 +17,13 @@ import threading
 import re
 import base64
 import json
+import typing
 
 i1820_logger_app = logging.getLogger('I1820.app')
 
+dev_eui_regex = re.compile(r'[a-fA-f0-9]{16}')
 
-class I1820App:
+class App:
     def __init__(self, dev_eui: str, token: str, mqtt_ip: str,
                  mqtt_port: int = 1883, logger=None):
         # MQTT Up and Running
@@ -30,16 +32,15 @@ class I1820App:
         self.client.on_connect = self._on_connect
 
         # Device Identification
-        p = re.compile(r'[a-fA-f0-9]{16}')
-        if p.fullmatch(dev_eui) is None:
-            raise I1820Exception("Invalid DevEUI")
+        if dev_eui_regex.fullmatch(dev_eui) is None:
+            raise I1820Exception("invalid device eui")
         self.dev_eui = dev_eui
 
         # Token
         self.token = token
 
         # Notification/Action handlers
-        self.notification_handlers = {}
+        self.notification_handlers: typing.Dict[str, typing.Callable[[Notification], None]] = {}
 
         # Event loop
         self.loop = asyncio.new_event_loop()
@@ -62,7 +63,7 @@ class I1820App:
             self.loop.run_until_complete(self.loop.shutdown_asyncgens())
             self.loop.close()
 
-    def notification(self, *things: [str]):
+    def notification(self, *things: typing.List[str]):
         def _notification(fn):
             for thing in things:
                 self.notification_handlers[thing] = fn
@@ -70,7 +71,7 @@ class I1820App:
         return _notification
 
     def log(self, type, device, states):
-        log = I1820Log(type, device, states)
+        log = Log(type, device, states)
         data = {
             'data': base64.b64encode(
                 log.to_json().encode('ascii')).decode('ascii'),
@@ -92,7 +93,7 @@ class I1820App:
 
     def _on_notification(self, client, userdata, message):
         data = json.loads(message.payload.decode('ascii'))
-        notif = I1820Notification.from_json(base64.b64decode(
+        notif = Notification.from_json(base64.b64decode(
             data['data']
         ))
 

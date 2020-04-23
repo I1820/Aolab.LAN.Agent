@@ -10,7 +10,7 @@ import datetime
 import json
 
 
-class I1820Log:
+class Log:
     '''
     The I1820Log object contains information that is used to
     report end device states into I1820 platform.

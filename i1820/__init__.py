@@ -1,3 +1,7 @@
+from .app import App
+from .domain.notif import Notification
+from .domain.log import Log
+
 import logging
 
 i1820_log_format = (

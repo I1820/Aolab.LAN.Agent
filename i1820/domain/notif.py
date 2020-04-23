@@ -9,7 +9,7 @@
 import json
 
 
-class I1820Notification:
+class Notification:
     '''
     The I1820Notification object contains information that is used to
     send notification into end devices.
